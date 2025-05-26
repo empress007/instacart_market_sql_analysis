@@ -29,7 +29,7 @@ The dataset consists of multiple CSV files that track orders, products, user beh
 |------|-------------|
 | `aisles.csv` | Contains information about different product categories (aisles). |
 | `departments.csv` | Provides details about various departments within the store. |
-| `orders.csv` | Order metadata including user ID, time of order, and order frequency |
+| `orders.csv` | Contains details about products in the training set of customer orders, Order data including user ID, time of order, and order frequency |
 | `order_products__train.csv` | Contains details about products in the training set of customer orders. |
 | `order_products__prior.csv` | Includes information about products included in prior customer orders |
 | `products.csv` | Contains details about products, including aisle and department IDs. |
