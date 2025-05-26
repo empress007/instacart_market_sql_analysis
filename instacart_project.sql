@@ -197,11 +197,9 @@ add constraint fk_opt_product foreign key (product_id) references products(produ
 -- This identifies which pairs of products are most often bought in the same order
 -- self join
 select opp1.product_id as product_1, p1.product_name as product_name1, opp2.product_id as product_2, 1, p2.product_name as product_name2,
-count(*) as pair_count from order_products_prior as opp1
-join order_products_prior as opp2 on opp1.order_id = opp2.order_id and opp1.product_id < opp2.product_id  
-join products as p1 on opp1.product_id = p1.product_id
-join products as p2 on opp2.product_id = p2.product_id
-group by opp1.product_id, opp2.product_id order by pair_count desc limit 10;
+elect p.product_name, count(*) as reorder_count from order_products_prior opp
+join products p on opp.product_id = p.product_id where opp.reordered = 1 
+group by p.product_name order by reorder_count desc limit 10;
 
 -- ●1b	What are the top 5 products that are most commonly added to the cart first?
 select opt.product_id, p.product_name, COUNT(*) as first_count from order_products_train as opt
@@ -329,11 +327,13 @@ group by opp1.product_id, opp2.product_id order by frequency desc limit 5;
 
 
 -- ●5b	Can we find products that are often bought together on weekends vs. weekdays?
-select opp1.product_id as product_1, opp1.product_id as product_2, o.order_dow, count(*) as frequency
-from order_products_prior as opp1 join order_products_prior as opp2
+select opp1.product_id as product_1, opp2.product_id as product_2,
+case
+when o.order_dow in (0,6) then 'Weekend' else 'Weekday' end as day_type, count(*) frequency
+from order_products_prior as opp1 join order_products_prior as opp2 on opp1.order_id = opp2.order_id
+and opp1.product_id < opp2.product_id
 join orders as o on opp1.order_id = o.order_id
-where o.order_dow in (0, 6)
-group by opp1.product_id, opp2.product_id, o.order_dow order by frequency desc limit 10;
+group by product_1, product_2, day_type order by frequency desc limit 10;
 
 
 
