@@ -55,7 +55,15 @@ All relevant CSVs were **imported into a MySQL database using the Table Data Imp
 
 > ⚠️ The tables were **not created or populated manually** using `INSERT` statements. Instead, the import wizard handled table creation and data insertion automatically during the CSV import process.
 
-Once imported, column types were reviewed and cleaned where necessary (e.g., converting text columns to integers or dates). Null values and duplicates were also checked and cleaned as needed.
+Once imported, Column data types were reviewed and adjusted as needed (e.g., converting text to integers where appropriate).. Null values and duplicates were also checked and cleaned as needed
+
+Constraints: Necessary constraints (e.g., primary keys, foreign keys, NOT NULL) were added to enforce data integrity.
+
+New Fields: A new column simulated_order_date was added to the orders table to support further analysis.
+
+New Tables: A backup table was created to preserve original data before transformation or deletion.
+
+Data Quality Checks: Null values: Identified and handled appropriately (e.g., removal or imputation), Duplicates: Detected and removed to ensure unique records.
 
 Example:
 ```sql
