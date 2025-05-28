@@ -3,14 +3,14 @@
 # ![1_DHfQvlMVBaJCHpYmj1kmCw](https://github.com/user-attachments/assets/f9dcef96-4a10-4b54-b41b-f777143c4e76)
 
 ## 💻 Table of Contents
-- [Introduction](#introduction)
-- [Dataset Overview](#dataset-overview)
-- [Project Objectives](#project-objectives)
-- [Data Cleaning](#data-cleaning)
-- [Data Exploration and Insights](#data-exploration-and-insights)
-- [Recommendation](#recommendation)
-- [Conclusion](#conclusion)
-- [Tech Stack](#tech-stack)
+- [Introduction](#Introduction)
+- [Dataset Overview](#Dataset-Overview)
+- [Project Objectives](#Project-Objectives)
+- [Data Cleaning](#Data-Cleaning)
+- [Data Exploration and Insights](#Data-Exploration-and-Insights)
+- [Recommendation](#Recommendation)
+- [Conclusion](#Conclusion)
+- [Tech Stack](#Tech-Stack)
 
 ---
 
