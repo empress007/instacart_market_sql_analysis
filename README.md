@@ -14,14 +14,14 @@
 
 ---
 
-## 📌 Introduction
+### 📌 Introduction
 The Instacart Market Basket Analysis project aims to explore and analyze customer shopping behavior using transactional data from the Instacart platform. 
 This dataset provides a rich source of information that can be used to derive valuable insights for optimizing operations and enhancing customer experiences.
 
 
 ---
 
-## 📊 Dataset Overview
+### 📊 Dataset Overview
 
 The dataset consists of multiple CSV files that track orders, products, user behavior, and departments:
 
@@ -40,7 +40,7 @@ Refer to the [Data Dictionary.docx](https://github.com/user-attachments/files/20
 
 ---
 
-## 🎯 Project Objectives
+### 🎯 Project Objectives
 
 - Understand which products are most reordered and when.
 - Identify user behavior trends (e.g., peak order times, reorder frequency).
@@ -49,7 +49,7 @@ Refer to the [Data Dictionary.docx](https://github.com/user-attachments/files/20
 
 ---
 
-## 🧹 Data Cleaning
+### 🧹 Data Cleaning
 
 All relevant CSVs were **imported into a MySQL database using the Table Data Import Wizard** (via MySQL Workbench). This allowed for efficient loading of large datasets without manual row insertion.
 
@@ -113,9 +113,9 @@ add constraint fk_opt_product foreign key (product_id) references products(produ
 
 ---
 
-## 🔍 Data Exploration and Insights
+### 🔍 Data Exploration and Insights
 
-### 1️⃣ What are the top 10 most frequently reordered products?
+#### 1️⃣ What are the top 10 most frequently reordered products?
 
 ```sql
 select p.product_name, count(*) as reorder_count from order_products_prior opp
@@ -123,7 +123,7 @@ join products p on opp.product_id = p.product_id where opp.reordered = 1
 group by p.product_name order by reorder_count desc limit 10;
 ```
 
-### 2️⃣ Can we find products that are often bought together on weekends vs. weekdays?
+#### 2️⃣ Can we find products that are often bought together on weekends vs. weekdays?
 
 ```sql
 select opp1.product_id as product_1, opp1.product_id as product_2, o.order_dow, count(*) as frequency
@@ -133,7 +133,7 @@ where o.order_dow in (0, 6)
 group by opp1.product_id, opp2.product_id, o.order_dow order by frequency desc limit 10;
 ```
 
-### 3️⃣ What are the different customer segments based on purchase recency, frequency and monetary?
+#### 3️⃣ What are the different customer segments based on purchase recency, frequency and monetary?
 
 ```sql
 select r.user_id, r.recency_days, f.total_orders, m.total_products,
@@ -167,7 +167,7 @@ join user_monetary as m on r.user_id = m.user_id
 order by m.total_products desc;
 ```
 
-### 4️⃣ What percentage of customers have churned in the past quarter?
+#### 4️⃣ What percentage of customers have churned in the past quarter?
 
 ```sql
 select round(100.0 * count(*) / (select count(distinct user_id) from orders), 2) as churned_percentage
@@ -176,7 +176,7 @@ where last_order < curdate() - interval 90 day;
 
 ```
 
-### 5️⃣ What are the top 5 product combinations that are most frequently purchased together?
+#### 5️⃣ What are the top 5 product combinations that are most frequently purchased together?
 
 ```sql
 select opp1.product_id as product_1, opp2.product_id as product_2,
@@ -190,7 +190,7 @@ group by product_1, product_2, day_type order by frequency desc limit 10;
 
 ---
 
-## ✅ Recommendation
+### ✅ Recommendation
 
 Based on insights:
 
@@ -208,13 +208,13 @@ Based on insights:
 
 ---
 
-## 🧾 Conclusion
+### 🧾 Conclusion
 
 This analysis demonstrates the value of SQL in extracting insights from large transactional datasets. We’ve uncovered trends around user behavior, reorder likelihood, and high-performing departments—all of which can inform marketing, stocking, and user engagement strategies for Instacart or any similar retail business.
 
 ---
 
-## 🛠 Tech Stack
+### 🛠 Tech Stack
 
 - SQL (MySQL)
 - MySQL Workbench
