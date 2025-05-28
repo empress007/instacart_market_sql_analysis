@@ -14,14 +14,14 @@
 
 ---
 
-### 📌 Introduction
+### Introduction 📌
 The Instacart Market Basket Analysis project aims to explore and analyze customer shopping behavior using transactional data from the Instacart platform. 
 This dataset provides a rich source of information that can be used to derive valuable insights for optimizing operations and enhancing customer experiences.
 
 
 ---
 
-### 📊 Dataset Overview
+### Dataset Overview 📊
 
 The dataset consists of multiple CSV files that track orders, products, user behavior, and departments:
 
@@ -40,7 +40,7 @@ Refer to the [Data Dictionary.docx](https://github.com/user-attachments/files/20
 
 ---
 
-### 🎯 Project Objectives
+### Project Objectives 🎯
 
 - Understand which products are most reordered and when.
 - Identify user behavior trends (e.g., peak order times, reorder frequency).
@@ -49,7 +49,7 @@ Refer to the [Data Dictionary.docx](https://github.com/user-attachments/files/20
 
 ---
 
-### 🧹 Data Cleaning
+### Data Cleaning 🧹
 
 All relevant CSVs were **imported into a MySQL database using the Table Data Import Wizard** (via MySQL Workbench). This allowed for efficient loading of large datasets without manual row insertion.
 
